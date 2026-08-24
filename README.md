@@ -5,46 +5,6 @@ one is only a few lines long. Together they cover everything in Topic 1.3.
 
 Plan on 30 to 45 minutes.
 
-## First — switch to Java 17 or newer
-
-This lab needs **Java 17 or higher**. GitHub Codespaces starts you on Java 11,
-which is too old, so switching versions is the first thing you do in a new
-Codespace.
-
-Step 1. See the list of Java versions you can install:
-
-```sh
-sdk list java
-```
-
-Look in the **Identifier** column on the right. Find any identifier that starts
-with a number of `17` or higher and ends in `-tem`, like `21.0.8-tem`. Any of
-them will work for this lab. Newer is fine.
-
-Step 2. Install the one you picked and make it your default. Replace
-`21.0.8-tem` below with the identifier you chose:
-
-```sh
-sdk install java 21.0.8-tem
-sdk default java 21.0.8-tem
-```
-
-The install takes a minute. `sdk default` is what makes new terminals keep
-using it.
-
-Step 3. Check that it worked:
-
-```sh
-java -version
-```
-
-The first line should show a number of 17 or higher. If it still says `11`,
-close the terminal, open a new one, and check again.
-
-You only have to do this once per Codespace. If you stop and reopen the same
-Codespace later, your Java version is still there. If you create a new
-Codespace, do this again.
-
 ## What you will practice
 
 - Printing with `System.out.print` and `System.out.println`, and knowing
@@ -194,8 +154,6 @@ text instead of added. Use parentheses to force the addition to happen first.
 
 ## Before you turn it in
 
-- [ ] `java -version` shows 17 or higher. If it says `11`, go back to the top
-      of this README.
 - [ ] Every `TODO` comment has been replaced with real code.
 - [ ] `mvn -q compile exec:java` runs without errors.
 - [ ] Part 2 prints the blank line in the right place. Count the lines.
