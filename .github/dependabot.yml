@@ -11,9 +11,9 @@ updates:
    schedule:
      interval: weekly
 
- # The build recipe for the published image lives outside .devcontainer/, so the entry
- # above does not see it. This keeps the Java feature version updated.
- - package-ecosystem: "devcontainers"
-   directory: "/.github/devcontainer-src"
-   schedule:
-     interval: weekly
+ # There is deliberately no entry for .github/devcontainer-src/devcontainer.json, which is
+ # the recipe the published image is built from: Dependabot's devcontainers ecosystem only
+ # scans .devcontainer.json, .devcontainer/devcontainer.json and .devcontainer/*/
+ # devcontainer.json, so it aborts on any other path. It is not needed there anyway -- that
+ # file pins floating tags (features/java:1, java:3-17-bookworm) which already resolve to
+ # the newest matching version every time the image is rebuilt on a push to main.
