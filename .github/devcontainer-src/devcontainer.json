@@ -1,0 +1,18 @@
+// Build recipe for the published devcontainer image. This is the file
+// .github/workflows/publish-devcontainer.yml builds from; .devcontainer/devcontainer.json
+// just points at the result. Change the environment here.
+//
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java
+{
+	"name": "Java",
+	"image": "mcr.microsoft.com/devcontainers/java:3-17-bookworm",
+
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "none",
+			"installMaven": "true",
+			"installGradle": "false"
+		}
+	}
+}

@@ -1,0 +1,44 @@
+name: publish-devcontainer
+
+# Bakes .github/devcontainer-src/devcontainer.json into a container image and pushes it to
+# GitHub Packages. .devcontainer/devcontainer.json points at the :latest tag, so a new
+# codespace pulls this prebuilt image instead of installing the Java/Maven feature at
+# create time.
+#
+# The image is public, so student copies of this lab in other repos can pull it too. If the
+# package ever reverts to private, new codespaces outside this repo will fail to start.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Image names must be lowercase; the repository name is not.
+      - id: img
+        run: echo "name=ghcr.io/${GITHUB_REPOSITORY,,}-devcontainer" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push the dev container image
+        uses: devcontainers/ci@v0.3
+        with:
+          configFile: .github/devcontainer-src/devcontainer.json
+          imageName: ${{ steps.img.outputs.name }}
+          imageTag: latest,${{ github.sha }}
+          cacheFrom: ${{ steps.img.outputs.name }}:latest
+          push: always
+          # Doubles as a smoke test: fails the run if the image is missing Java or Maven.
+          runCmd: java -version && mvn -v

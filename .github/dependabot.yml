@@ -10,3 +10,10 @@ updates:
    directory: "/"
    schedule:
      interval: weekly
+
+ # The build recipe for the published image lives outside .devcontainer/, so the entry
+ # above does not see it. This keeps the Java feature version updated.
+ - package-ecosystem: "devcontainers"
+   directory: "/.github/devcontainer-src"
+   schedule:
+     interval: weekly
