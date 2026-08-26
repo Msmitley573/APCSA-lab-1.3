@@ -25,7 +25,7 @@ public class ExpressionsLab
         // TODO Part 1: replace this placeholder with the real string
      public static  String signMessage()
     {
-    return  "The sign said \"Watch your step\".\nSaved to C:\\;labs\\topic13";
+    return  "The sign said \"Watch your step\".\nSaved to C:\\labs\\topic13";
     }
 
     // ---------------------------------------------------------------
@@ -42,7 +42,7 @@ public class ExpressionsLab
     // inside the parentheses to make the blank line.
     // ---------------------------------------------------------------
     public static void printScoreboard()
-    { System.out.print("Red "); System.out.print("Blue "); System.out.println("Green ");
+    { System.out.print("Red "); System.out.print("Blue "); System.out.println("Green");
      System.out.println();
      System.out.println("Done");
     } 
