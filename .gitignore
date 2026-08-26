@@ -2,11 +2,11 @@
 target/
 
 # Grading material — never ships to students
-grading/
 src/test/
 
 # Editor / OS noise
 .idea/
 *.iml
-.vscode/
+.vscode/*
+!.vscode/settings.json
 .DS_Store
