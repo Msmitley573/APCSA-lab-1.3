@@ -20,15 +20,17 @@ public class ExpressionsLab
     //
     // You will need all three escape sequences: \" and \\ and \n
     // ---------------------------------------------------------------
-    public static String signMessage()
-    {
+    
+    
         // TODO Part 1: replace this placeholder with the real string
-        return "";
+     public static  String signMessage()
+    {
+    return  "The sign said \"Watch your step\".\nSaved to C:\\;labs\\topic13";
     }
 
     // ---------------------------------------------------------------
     // PART 2: print vs println
-    //
+    // 
     // Print exactly these three lines (the second line is blank):
     //
     //     Red Blue Green
@@ -40,9 +42,10 @@ public class ExpressionsLab
     // inside the parentheses to make the blank line.
     // ---------------------------------------------------------------
     public static void printScoreboard()
-    {
-        // TODO Part 2: print the three lines described above
-    }
+    { System.out.print("Red "); System.out.print("Blue "); System.out.println("Green ");
+     System.out.println();
+     System.out.println("Done");
+    } 
 
     // ---------------------------------------------------------------
     // PART 3: Arithmetic operators and precedence
@@ -56,7 +59,7 @@ public class ExpressionsLab
     public static int totalCost(int adults, int children)
     {
         // TODO Part 3: return the total cost
-        return 0;
+        return adults * 12 + children * 7 + 5;
     }
 
     // ---------------------------------------------------------------
@@ -69,7 +72,7 @@ public class ExpressionsLab
     public static int fullBoxes(int cookies, int perBox)
     {
         // TODO Part 4a: return the number of completely filled boxes
-        return 0;
+        return cookies / perBox;
     }
 
     // ---------------------------------------------------------------
@@ -81,7 +84,7 @@ public class ExpressionsLab
     public static int leftoverCookies(int cookies, int perBox)
     {
         // TODO Part 4b: return the leftover cookies
-        return 0;
+        return cookies % perBox;
     }
 
     // ---------------------------------------------------------------
@@ -96,7 +99,7 @@ public class ExpressionsLab
     public static double exactAverage(int a, int b, int c)
     {
         // TODO Part 5: return the exact average
-        return 0.0;
+        return (a+b+c)/3.0;
     }
 
     // ---------------------------------------------------------------
@@ -111,7 +114,7 @@ public class ExpressionsLab
     public static String summaryLine(int a, int b)
     {
         // TODO Part 6: return the label plus the sum
-        return "";
+        return "Total: " + (a+b);
     }
 
     // ---------------------------------------------------------------
